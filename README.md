@@ -44,8 +44,8 @@ Here are the main tools/technologies being used for this build. These automatica
 
 ## GUIDELINES
 - When creating new branch if you're fixing a bug or implementing a feature follow this pattern:
-    - fixing: fix/<name-of-fix>
-    - feature: feat/<name-of-feature>
+    - fixing: `fix/<name-of-fix>`
+    - feature: `feat/<name-of-feature>`
 - Never commit directly into the main branch. Always create a new branch and PR.
 
 
