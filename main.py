@@ -47,7 +47,7 @@ class PasswordManager:
     @staticmethod
     @click.command()
     @click.option('-l', '--length', default=8, help="length of password", show_default=True)
-    def generate_password(length) -> str:
+    def generate_password(length) -> str | None:
         """
         @param length: Specifies length of password
         Returns a generated of length <length>
