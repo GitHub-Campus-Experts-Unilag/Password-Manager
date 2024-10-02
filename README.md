@@ -23,7 +23,7 @@ Here are the main tools/technologies being used for this build. These automatica
 
    ```bash
    git clone https://github.com/GitHub-Campus-Experts-Unilag/Password-Manager.git
-   cd password-manager-cli
+   cd Password-Manager
 
 2. **Install dependencies:**
     
