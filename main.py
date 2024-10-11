@@ -88,9 +88,12 @@ class PasswordManager:
         pass
 
 
-def main():
-    pm = PasswordManager()
-    pm.encrypt_password()
+@click.group()
+def main(): pass
+
+main.add_command(PasswordManager.generate_password)
+main.add_command(PasswordManager.encrypt_password)
+main.add_command(PasswordManager.store_password)
     
     
 if __name__ == "__main__":
