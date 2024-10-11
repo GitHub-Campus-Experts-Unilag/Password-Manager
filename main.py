@@ -70,7 +70,11 @@ class PasswordManager:
 
 
     @click.command()
-    @click.option('-p', '--password', prompt=True, help="Password to encrypt")
+    @click.option(
+        '-p', '--password', prompt=True,
+        help="Password to encrypt",
+        hide_input=True, confirmation_prompt=True
+    )
     def encrypt_password(password: str) -> str:
         """
         Returns encrypted password
