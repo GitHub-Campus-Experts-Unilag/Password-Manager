@@ -1,3 +1,4 @@
+import bcrypt
 import click
 import logging
 import string
@@ -69,11 +70,18 @@ class PasswordManager:
 
 
     @click.command()
-    def encrypt_password() -> None:
+    @click.option(
+        '-p', '--password', prompt=True,
+        help="Password to encrypt",
+        hide_input=True, confirmation_prompt=True
+    )
+    def encrypt_password(password: str) -> str:
         """
         Returns encrypted password
         """
-        pass
+        salt = bcrypt.gensalt()
+        hashed_password = bcrypt.hashpw(password.encode(), salt)
+        click.echo(f"Encrypted password: {hashed_password.decode()}")
 
 
     @click.command()
@@ -84,9 +92,12 @@ class PasswordManager:
         pass
 
 
-def main():
-    pm = PasswordManager()
-    pm.generate_password()
+@click.group()
+def main(): pass
+
+main.add_command(PasswordManager.generate_password)
+main.add_command(PasswordManager.encrypt_password)
+main.add_command(PasswordManager.store_password)
     
     
 if __name__ == "__main__":
